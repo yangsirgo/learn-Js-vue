@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body id="app">
+      <input type="text" v-model="info.name" name="">
+      <child v-bind:msg="info"></child>
+    </body>
+</html>
+<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="../node_modules/vue-validator/dist/vue-validator.js"></script>
+<script>
+new Vue({
+  el:"#app",
+  data:function(){
+    return{
+      info:{
+        name:"shunfengche"
+      }
+    }
+  },
+  components:{
+    "child":{
+      props:['msg'],
+      template:"<div>{{msg.name}}12121</div>"
+    }
+  }
+})
+</script>

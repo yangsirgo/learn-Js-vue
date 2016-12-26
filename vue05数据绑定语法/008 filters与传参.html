@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 过滤器，可以传递参数  -->
+  <!-- json输出经JSON。stringfy()处理后的结果 -->
+  <div id="app">
+    <h1><pre>{{message | json}}</pre></h1>
+  </div>
+</body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+new Vue({
+  el:"#app",
+  data:{
+    message:{
+      1:"wo",
+      2:"ai"
+    }
+  }
+})
+</script>

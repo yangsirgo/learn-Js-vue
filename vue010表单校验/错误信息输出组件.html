@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+          <div id="app">
+        <validator name="validation">
+          <div>
+            <label for="username">用户名：</label>
+            <input type="text"  v-validate:username="{required:{rule:true,message:'需要填写用户名'}}">         <div class="errors"></div>
+          </div>
+          <div>
+            <label for="password">密码：</label>
+            <input type="text"  v-validate:password="{required:{rule:true,message:'需要填写密码'},minlength:{rule:8,message:'太短了'}}">
+          </div>
+          <!-- validatir-errors组件便捷输出错误信息 -->
+          <div class="errors">
+            <validator-errors :validation="$validation"></validator-errors>
+          </div>
+        </validator>
+      </div>
+    </body>
+</html>
+<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="../node_modules/vue-validator/dist/vue-validator.js"></script>
+<script type="text/javascript">
+var vm = new Vue({
+  el:"#app",
+})
+</script>

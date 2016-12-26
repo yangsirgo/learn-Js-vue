@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <pre>
+      使用template效果等同 script x-template
+      </pre>
+      <template id="template1">
+        <div>
+          <h2>{{title}}</h2>
+          <label for='username'>Name:</label>
+          <input v-model='user.name' id="username">
+          <label for='useremail'>Email:</label>
+          <input v-model='user.email' id="usermail">
+          <button @click="save">button</button>
+          <br />
+          {{tmp1}}
+          <br />
+          {{user.name}}
+          <br />
+          {{user.mail}}
+        </div>
+      </template>
+      <div id="app"></div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+var vm = new Vue({
+  el:"#app",
+  template:"#template1",
+  data:{
+    title:'template使用',
+    user:{
+        name:"yang",
+        email:"qq.com"
+    },
+    tmp1:""
+  },
+  methods:{
+    "save":function(){
+      return this.tmp1 = "clicked"
+    }
+  }
+})
+</script>

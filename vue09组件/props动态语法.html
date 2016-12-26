@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        <input type="text" v-model="msg" name="">
+        <didi :message="msg"></didi>
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+  var children = Vue.extend({
+    props:["didiprops"],
+    template:"<div>{{didiprops}} DDFF</div>",
+    replace:true //replace决定是否替换自定义元素
+  })
+
+  var parent = Vue.extend({
+    props:["message"],
+    template:"<div>i am parent</div><child :didiprops='hello'></child>",
+    // data:function(){
+    //   console.log(message);
+    //   return {"hello":this.message}
+    // },
+    data:function(){
+      return {"hello":this.message}
+    },
+    components:{
+      'child':children
+    }
+  })
+
+  new Vue({
+    el:"#app",
+    data:{
+      msg:""
+    },
+    components:{
+      didi:parent
+    }
+    // components:{
+    //   didi:{
+    //         props:["message"],
+    //         template:"<div>i am parent</div><child :didiprops='{{message}}'></child>",
+    //         components:{
+    //          'child':children
+    //        }
+    //   }
+    // }
+  })
+</script>

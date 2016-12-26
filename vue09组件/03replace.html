@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <pre>Vue实例时，使用replace有什么差别
+      replace:false 指的是插入
+      </pre>
+      <div id="replace"></div>
+      <div id="insert"></div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script>
+var vm = new Vue({
+  el:"#replace",
+  // components:{
+    template:"<p>121212</p>",
+    replace:true
+  // }
+})
+var vm1 = new Vue({
+  el:"#insert",
+  // components:{
+    template:"<p>2121212</p>",
+    replace:false
+  // }
+})
+</script>

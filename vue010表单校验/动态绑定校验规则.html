@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        <validator name="validation">
+          <form novalidate>
+            ID:<input type="text" v-validate:id="rules" name="">
+            <div>
+              <span v-if="$validation.id.minlength">short</span>
+              <span v-if="$validation.id.maxlength">long</span>
+            </div>
+          </form>
+        </validator>
+      </div>
+    </body>
+</html>
+<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="../node_modules/vue-validator/dist/vue-validator.js"></script>
+<script type="text/javascript">
+new Vue({
+  el:"#app",
+  data:{
+    rules:{
+      minlength:3,
+      maxlength:10
+    }
+  }
+})
+</script>

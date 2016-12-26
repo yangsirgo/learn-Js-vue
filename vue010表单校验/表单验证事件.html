@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        <validator name="validation">
+          <div class="comment-field">
+            <label for="comment">
+              comment:
+            </label>
+            <input type="text" @valid="onValid" @invalid="onInvalid" @touched="onTouched" @dirty="onDirty" @modified="onmodified"  v-validate:comment="['required']" name="">
+          </div>
+          <div>
+            <p>{{occuredValid}}</p>
+            <p>{{occuredinvalid}}</p>
+            <p>{{occuredonTouched}}</p>
+            <p>{{occuredonDirty}}</p>
+            <p>{{occuredmodified}}</p>
+          </div>
+        </validator>
+      </div>
+    </body>
+</html>
+<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="../node_modules/vue-validator/dist/vue-validator.js"></script>
+<script type="text/javascript">
+new Vue({
+  el:"#app",
+  data:{
+    occuredValid:"",
+    occuredinvalid:"",
+    occuredonTouched:"",
+    occuredonDirty:"",
+    occuredmodified:""
+  },
+  methods:{
+    onValid:function(){
+      this.occuredValid="valid event"
+      this.occuredinvalid = '';
+    },
+    onInvalid:function(){
+      this.occuredinvalid="invalid event"
+      this.occuredValid = '';
+    },
+    onTouched:function(){
+      this.occuredonTouched="touched event"
+    },
+    onDirty:function(){
+      this.occuredonDirty="dirty event"
+    },
+    onmodified:function(){
+      this.occuredmodified="modified event"
+    }
+  }
+})
+</script>

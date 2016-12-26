@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app1">
+        <app></app>
+      </div>
+      <template id="app-header">
+        <div>{{msg}}</div>
+      </template>
+      <template id="app-footer">
+        <div>{{msg}}</div>
+      </template>
+      <template id="app">
+        <div>
+          {{msg}}
+          <!-- 父组件中无法得治子组件中的data isshow是false-->
+          <app-header v-show="isshow"></app-header>
+          <app-footer></app-footer>
+        </div>
+      </template>
+    </body>
+</html>
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript">
+Vue.component('app-header',{
+    template:"#app-header",
+    data:function(){
+      return {
+        msg:'app-header',
+        isshow:true
+      }
+    }
+})
+
+Vue.component("app-footer",{
+    template:"#app-footer",
+    data:function(){
+      return {
+        msg:'app-footer'
+      }
+    }
+})
+
+Vue.component('app',{
+    template:"#app",
+    data:function(){
+      return {
+        msg:'app',
+        //isshow的位置必须是父组件的位置，注意一下
+        isshow:true
+      }
+    }
+})
+
+var vm = new Vue({
+  el:'#app1'
+})
+</script>
+
+

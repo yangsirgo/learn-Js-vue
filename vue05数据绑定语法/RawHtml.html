@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div id="app">
+      <p>{{{raw_html}}}</p>
+      <p>{{raw_html}}</p>
+    </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+new Vue({
+  el:"#app",
+  data:{
+    raw_html:'<img width="220" height="220" class="" data-img="1" data-lazy-img="done" src="//img11.360buyimg.com/n7/jfs/t3205/222/4061036739/100592/fcec060e/57ff58e6Ne3a0d9c1.jpg">'
+  }
+})
+</script>

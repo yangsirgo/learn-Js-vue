@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body id="app">
+      <didi></didi>
+      <pre>
+        1.在VUE.JS 组件有个观念 很多tag可以完成业务目的
+        2.tag 可以在V层重新使用多次
+        3.Vue.component 是将构造器注册在html的tag中 以便vue.js 渲染
+        4.Vue.extend 是构造器 没有实例 可以在复制过程中 更改或者加入内容构造器中
+      </pre>
+      <didi></didi>
+      <didi2></didi2>
+      <didi></didi>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script>
+var Component = Vue.extend({
+  template:"<div><h1>{{msg1}}</h1></div>",
+  data:function(){
+    return {
+      msg1:"vue111111111.js"
+    }
+  }
+})
+Vue.component('didi',Component)
+var Component1 = Vue.extend({
+  template:"<div><h1>{{msg2}}</h1></div>",
+  data:function(){
+    return {
+      msg2:"vue222222222.js"
+    }
+  }
+})
+Vue.component('didi2',Component1)
+var vm = new Vue({
+  el:"#app"
+})
+
+</script>

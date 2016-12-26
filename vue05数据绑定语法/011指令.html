@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        <span v-if="greeting">{{msg}}</span>
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script>
+var vm = new Vue({
+  el:"#app",
+  data:{
+    greeting:true,
+    msg:"hello"
+  }
+})
+
+</script>

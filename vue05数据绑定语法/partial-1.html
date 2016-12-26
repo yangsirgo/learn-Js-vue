@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <!-- partial注册局部的模板 示例 -->
+      <div id="app">
+      <!-- 动态的partial -->
+      <!-- 渲染 partial 用 id === vm.partialId -->
+        <partial v-bind:name="partialId"></partial>
+        <br />
+        <input type="text" name="" v-model="partialId" placeholder="this is partialId">
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+//注册局部模板片段1
+Vue.partial("partialId","<div>partialId</div><p>'partialId'</p>");
+//注册局部模板片段2
+Vue.partial("partialId1","<span>{{msg}}</span>");
+var vm = new Vue({
+  el:"#app",
+  data:{
+    msg:"xuexi vue hard",
+    partialId:"partialId"
+  }
+})
+</script>

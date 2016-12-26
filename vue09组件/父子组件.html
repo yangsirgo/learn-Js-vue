@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <pre>Vue.extend 构造父子组件</pre>
+      <div id="app">
+        <didi></didi>
+        <didi></didi>
+        <didi></didi>
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+ var Child = Vue.extend({
+  template:"---child<span>{{msg}}</span>",
+  data:function(){
+    return {
+      msg:"child"
+    }
+  }
+ })
+
+ var br = Vue.extend({
+  template:"---br<br />"
+ })
+
+var Parent = Vue.extend({
+  template:"---Parent<div><child></child><br></div>",
+  components:{
+    "child":Child,
+    "br":br,
+    replace:false
+  }
+})
+
+new Vue({
+  el:"#app",
+  components:{
+    "didi":Parent
+  }
+})
+</script>

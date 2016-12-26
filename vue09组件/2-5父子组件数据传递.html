@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        <input type="text" v-model="parentMsg" name="">
+        <br>
+        <child :msg='parentMsg'></child>默认的情况下
+        <br>
+        <child :msg.sync='parentMsg'></child>双向绑定
+        <br>
+        <!-- 不管是双向绑定还是单项绑定 只绑定一次即初始化的第一次 -->
+        <child :msg.once='parentMsg'></child>只绑定一次
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+Vue.config.debug = true;
+Vue.component('child',{
+  props:['msg'],
+  template:"<span><input type='text' v-model='msg'/>{{msg}}</span>"
+});
+
+var vm = new Vue({
+  el:"#app",
+  data:{
+    parentMsg : "用心学习vue.js"
+  }
+});
+</script>

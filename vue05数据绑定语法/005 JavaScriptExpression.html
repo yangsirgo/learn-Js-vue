@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div id="app">
+    <!-- 插值语法可以内部存在js表达式 -->
+      <p>{{num+21}}</p>
+      <p>{{ok?"true":"false"}}</p>
+      <p>{{msg.split("").reverse().join("")}}</p>
+    </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+new Vue({
+  el:"#app",
+  data:{
+    num:"1",
+    ok:"true",
+    msg:"hello"
+  }
+})
+</script>

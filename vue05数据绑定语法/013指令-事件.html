@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div id="app">
+          <a @click="eventHandle">a=1</a>
+          <br />
+          <a @click="eventHandle2">a=2</a>
+          <br />
+          <span>{{msg}}</span>
+    </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+new Vue({
+  el:"#app",
+  data:{
+    msg:0
+  },
+  methods:{
+      eventHandle:function(){
+        this.msg = 1
+      },
+      eventHandle2:function(){
+        this.msg = 2
+      }
+  }
+})
+</script>

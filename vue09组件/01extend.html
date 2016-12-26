@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+         <pre>控制台中，可以看到vue的组件实例
+        （1）$options可以看到 template
+        （2）_data 可以看到data msg
+         (3)执行myComponentInstance.$mount('#app')
+         可以看到 这个组件实例，就挂载在#app
+        </pre>
+     <div id="app">
+
+       <cc></cc>
+     </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+var Components = Vue.extend({
+  template:"<p>{{msg}}</p>",
+  data:function(){
+    return {
+      msg:"我是组件实例"
+    }
+  }
+})
+
+var myComponentInstance = new Components({
+  el:"#app"
+});
+console.log(myComponentInstance);
+
+</script>

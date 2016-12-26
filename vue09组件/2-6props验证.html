@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="app">
+          1.
+          <input type="text" v-model='parentMsg' name="">
+          <br />
+          2.
+          <example
+          :prop-a='100'
+          prop-b="100"
+          :prop-c=''
+          :prop-d=""
+          :prop-e.sync = 'parentMsg'
+          prop-f = "13"
+          prop-g = "100"
+          prop-h = "100"
+          prop-m = "100"
+          ></example>
+        </div>
+        <template id="pp">
+          <ul>
+            <li>propA:{{propA+1}}</li>
+            <li>propB:{{propB+1}}</li>
+            <li>propC:{{propC+1}}</li>
+            <li>propD:{{propD+1}}<pre>{{ propD | json4 }}</pre></li>
+            <li>propE:{{propE+1}}</li>
+            <li>propF:{{propF+1}}</li>
+            <li>propG:{{propG+1}}</li>
+            <li>propH:{{propH+1}}<pre>{{ propH | json4 }}</pre></li>
+            <li>propM:{{propM+1}}</li>
+          </ul>
+        </template>
+    </body>
+</html>
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript">
+Vue.config.debug = true;
+Vue.component('example',{
+  props:{
+    // 基础类型检测（null 意思是任何类型都可以）
+    propA:Number,
+    //多种类型（1.0.21+）
+    propM:[String,Number],
+    //必须且是字符串
+    propB:{
+      type:String,
+      required:true
+    },
+    //数字 有默认值
+    propC:{
+      type:Number,
+      default:100
+    },
+    // 对象/数组的默认值应当有一个函数返回
+    propD:{
+      type:Object,
+      default:function (){
+        return {
+          msg:'hello'
+        }
+      }
+    },
+    //指定这个prop为双向绑定
+    //如果绑定类型不对将抛出警告
+    propE:{
+      twoWay:true
+    },
+    //自定义验证函数
+    propF:{
+      validator:function(value){
+        return value > 10
+      }
+    },
+    // 转换函数（1.0.12新增）
+    // 在设置之前转换值
+    propG:{
+      coerce:function(val){
+        return val + '';//转换成字符串
+      }
+    },
+    propH:{
+       coerce:function(val){
+        return JSON.parse(val);//将JSON字符串转换为对象
+      }
+    }
+  },
+   template:"#pp"
+})
+var vm = new Vue({
+  el:"#app",
+  data:{
+    parentMsg:"nihao"
+  }
+})
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="../node_modules/vue-validator/dist/vue-validator.js"></script>
+    <body>
+      <div id="app">
+        <validator name="validation">
+          <form novalidate>
+            <p class="validate-field" v-for="field in fields">
+              <label :for="field.id">{{field.label}}</label>
+              <input type="text" :id="field.id" :placeholder="field.placeholder" field="{{field.name}}" v-validate="field.validate">
+            </p>
+            <pre>{{$validation | json}}</pre>
+          </form>
+        </validator>
+      </div>
+    </body>
+</html>
+<script type="text/javascript">
+new Vue({
+  el:"#app",
+  data:{
+    fields:[{
+      id:"username",
+      label:"username",
+      name:"username",
+      placeholder:"input your username",
+      validate:{require:true,maxlength:3}
+    },{
+      id:"message",
+      label:"message",
+      name:"message",
+      placeholder:"input your message",
+      validate:{require:true,maxlength:2
+      }
+    }]
+  }
+})
+</script>

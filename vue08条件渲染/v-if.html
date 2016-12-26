@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        <p v-if="greeting">{{hello}}</p>
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+  var example2 = {
+    hello:120
+  }
+  new Vue({
+    el:"#app",
+    data:{
+      greeting:false,
+      hello:120
+    }
+  })
+</script>

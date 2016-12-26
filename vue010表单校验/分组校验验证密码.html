@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <!-- 放在一个教研组里，两侧校验都通过了，这个教研组才通过 -->
+      <div id="app">
+        <validator name="validation" :groups="['passgroup']">
+          用户名：<input type="text" v-validate:username="['required']">
+          密码：<input type="password" group='passgroup' v-validate:password="{required:true,minlength:8}">
+          确认密码：<input type="password" group='passgroup' v-validate:confirm="{required:true,minlength:8}">
+          <span v-if="$validation.username.invalid">填写用户名</span>
+          <span v-if="$validation.passgroup.invalid">两个密码不一致</span>
+          <pre>{{$validation.passgroup | json}}</pre>
+        </validator>
+      </div>
+    </body>
+</html>
+<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="../node_modules/vue-validator/dist/vue-validator.js"></script>
+<script type="text/javascript">
+var vm = new Vue({
+  el:"#app",
+})
+</script>

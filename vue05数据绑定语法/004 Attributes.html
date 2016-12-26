@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+          Attributes
+        </title>
+    </head>
+    <body>
+       <!-- Mustache标签可以用在HTML特性(Attribute)内部 -->
+       <div id="app">
+         <p id="item{{msg}}">{{msg}}</p>
+       </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+var vm = new Vue({
+  el:"#app",
+  data:{
+      msg:"0001"
+  }
+})
+</script>

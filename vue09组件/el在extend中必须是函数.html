@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <pre>el在extend中必须是函数式的</pre>
+      <div id="app">
+        <didi></didi>
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+var Tpl = Vue.extend({
+  el:function(){
+    return "#app"
+  },
+  template:"<div>{{msg}}</div>",
+  data:function(){
+    return {
+      msg:"1212"
+    }
+  }
+})
+
+var Component = new Tpl();
+</script>

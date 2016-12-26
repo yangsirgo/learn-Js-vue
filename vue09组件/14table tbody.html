@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <pre>table 使用tbody</pre>
+      <div id="app">
+        <table>
+          <tbody>
+            <tr v-for="item in items">
+              <td>{{$index}}.item.msg</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <ul>
+          <li v-for="item in items">{{$index}}+item.msg</li>
+        </ul>
+        <pre>{{$data | json}}</pre>
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+Vue.config.debug = true;
+var vm = new Vue({
+  el:"#app",
+  data:{
+    items:[
+      {msg:'A'},
+      {msg:'B'},
+      {msg:'C'},
+      {msg:'D'}
+    ]
+
+  }
+})
+</script>

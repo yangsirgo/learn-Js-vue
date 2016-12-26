@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div id="vm">
+      <parent></parent>
+    </div>
+    <template id="parent">
+      <h3>A君</h3>
+      <multi-insertion>
+        <p slot='one'>1.One</p>
+        <p slot='two'>2.Two</p>
+        <p>3.Default A</p>
+        <h4 slot='four'>4.Four</h4>
+        <p slot='five'>5.Five</p>
+        <h5>5.Default A</h5>
+      </multi-insertion>
+      <hr>
+      <h3>B君</h3>
+      <multi-insertion1>
+        <p slot='one'>1.One</p>
+        <p slot='two'>2.Two</p>
+        <p>3.Default A</p>
+        <h4 slot='four'>4.Four</h4>
+        <p slot='five'>5.Five</p>
+        <h5>3.Default A</h5>
+      </multi-insertion1>
+    </template>
+
+    <template id="multi-insertion">
+      <div>
+        <slot></slot>
+        <slot name='five'></slot>
+        <slot name='four'></slot>
+        <slot name='two'></slot>
+        <slot name='one'></slot>
+        <slot></slot>
+      </div>
+    </template>
+
+    <template id="multi-insertion1">
+      <div>
+        <slot></slot>
+        <slot name='five'></slot>
+        <slot name='four'></slot>
+        <slot name='two'></slot>
+        <slot name='one'></slot>
+      </div>
+    </template>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+Vue.component('parent',{
+  template:'#parent'
+})
+Vue.component('multi-insertion',{
+  template:'#multi-insertion'
+})
+Vue.component('multi-insertion1',{
+  template:'#multi-insertion1'
+})
+new Vue({
+  el:'#vm'
+})
+</script>

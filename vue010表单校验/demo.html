@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div id="app">
+      <validator name="validation">
+        <form novalidate>
+          <input type="text" name="" v-validate:user-name="{minlength:1,maxlength:2}">
+          <div>
+            <span v-show="$validation.userName.minlength">太短了</span>
+            <span v-show="$validation.userName.maxlength">太长了</span>
+          </div>
+        </form>
+      </validator>
+    </div>
+    </body>
+</html>
+    <script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="../node_modules/vue-validator/dist/vue-validator.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el:"#app"
+    })
+    </script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <!-- partial 注册 局部的模板 示例 -->
+    <div id="app">
+    <!-- 静态的partial  -->
+      <partial name="partialId"></partial>
+      <!-- 动态 partial -->
+      <partial v-bind:name="partialId"></partial>
+    </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+//注册partial
+Vue.partial("partialId","<div>this is partial</div><p>{{msg}}</p>")
+//实例化
+new Vue({
+  el:"#app",
+  data:{
+    msg:"vue study hard"
+    }
+})
+</script>

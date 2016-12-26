@@ -1,0 +1,23 @@
+{
+  "name": "vue-lianxi",
+  "version": "1.0.0",
+  "description": "vue-study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangsirgo/learn-Js-vue.git"
+  },
+  "author": "yang.guochao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangsirgo/learn-Js-vue/issues"
+  },
+  "homepage": "https://github.com/yangsirgo/learn-Js-vue#readme",
+  "dependencies": {
+    "vue": "^1.0.24",
+    "vue-validator": "^2.1.3"
+  }
+}

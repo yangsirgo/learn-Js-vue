@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        <input type="text" v-model="msg">
+        <p>{{msg}}</p>
+        <div>
+          <didi v-bind:message="msg"></didi>
+        </div>
+      </div>
+    </body>
+</html>
+<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript">
+  //组件构造器
+  //如何msg双向绑定到组件上？？？？？？？？？？？？？.
+  //message是个参数ID 通过message将msg的值传给组件。详见p39 绑定prop
+  var temp = Vue.extend({
+    props:["message"],
+    template:"<div>{{message}}DDFF</div>",
+    replace:true
+  })
+
+  // Vue.component("didi",temp)
+  new Vue({
+    el:"#app",
+    data:{
+      msg:"12"
+    },
+    components:{
+      "didi":temp
+    }
+  })
+</script>

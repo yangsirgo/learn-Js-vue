@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="example">
+        <didi-a my-Msg="hello"></didi-a>
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+
+// 局部注册，可以让组件用在其他组件内部
+var Child = Vue.extend({
+  template:"<div>i am child</div>",
+  replace:true
+})
+
+var Parent = Vue.extend({
+  //props 是组件数据的一个字段，期望从父组件传下来的数据
+  props:["myMsg"],
+  template:"<p>i am parent{{myMsg}}</p><br /><child ></child>",
+  components:{
+    "child":Child
+  }
+})
+
+new Vue({
+  el:"#example",
+  components:{
+    "didi-a":Parent
+  }
+})
+
+</script>

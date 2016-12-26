@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>插值-文本</title>
+    </head>
+    <body>
+      <div id="app">
+        <p>{{ message }}</p>
+        <input type="text" v-model="message" name="" placeholder="data">
+        <br />
+        <p>{{* message1 }}</p>
+        <input type="text" v-model="message1" name="" placeholder="data1">
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+
+    //V-model在表单上创建双向绑定
+
+
+    new Vue({
+      el:"#app",
+      data:{
+        message:"data",
+        message1:"data1"
+      }
+    })
+</script>

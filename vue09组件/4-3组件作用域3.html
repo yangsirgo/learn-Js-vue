@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="vm">
+        <button>test是否在前</button>
+        <button>test是否在前</button>
+        <button>test是否在前</button>
+        <app></app>
+      </div>
+      <template id="app">
+        <div>
+          {{msg}}
+          <child-component></child-component>
+          <!-- 无效，因为父组件作用域中，只能使用父组件的data -->
+          <child-component1 v-show='isshow'></child-component1>
+        </div>
+      </template>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+ Vue.component('child-component',{
+  // 有效，因为实在正确的作用域内，使用全局注册，并且在此作用域使用data
+  template:"<div v-show='isshow'>Child</div>",
+  data:function(){
+    return{
+      isshow:true
+    }
+  }
+ })
+
+Vue.component('child-component1',{
+  template:'<div>Child-1</div>',
+  data:function(){
+    return {
+       isshow:true
+    }
+  }
+})
+
+Vue.component('app',{
+  template:'#app',
+  data:function(){
+    return {
+       msg:'--app--'
+    }
+  }
+})
+
+var vm = new Vue({
+  el:'#vm',
+  data:{
+    msg:[]
+  }
+})
+
+
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <!-- 渲染顺序按子组件slot的位置决定 -->
+    <div id="app1">
+      <didi>
+        <p>4----</p>
+        <p>5----</p>
+        <p>6----</p>
+      </didi>
+    </div>
+    <template id="didi">
+      <div>
+        <p>1-----</p>
+        <p>2-----</p>
+        <slot>3-----</slot>
+      </div>
+    </template>
+    </body>
+</html>
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript">
+Vue.component('didi',{
+  template:'#didi'
+})
+new Vue({
+  el:'#app1'
+})
+</script>

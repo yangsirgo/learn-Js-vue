@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        <app-nav></app-nav>
+        <app-view></app-view>
+      </div>
+    </body>
+</html>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script type="text/javascript">
+//003 网页可以切割成组件 迅速建立
+
+//定义组件 （用Vue.extend（）创建一个组件构造器）
+
+
+
+
+
+  //定义组件 （组件构造器）
+  var appNav = Vue.extend({
+      template:"<div>appNav</div>"
+  })
+  var appView = Vue.extend({
+    template:"-1-12-<app-sidebar></app-sidebar><app-content></app-content>-34-56-"
+  })
+  var appSidebar = Vue.extend({
+    template:"<div>appSidebar</div>"
+  })
+  var appContent = Vue.extend({
+    template:"<div>appContent</div>"
+  })
+
+
+  //注册（要把这个构造器用作组件，需要用Vue.component（tag，constructor）注册）
+  //注意！！！组件注册完后，回去替换自定义元素
+  Vue.component("app-nav",appNav);
+  Vue.component("app-view",appView);
+  Vue.component("app-sidebar",appSidebar);
+  Vue.component("app-content",appSidebar);
+
+  //创建根实例
+  new Vue({
+    el:"#app"
+  })
+
+</script>

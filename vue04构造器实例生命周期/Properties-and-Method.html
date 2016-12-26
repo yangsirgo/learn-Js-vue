@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <div id="app">
+        yangguochao{{a}}
+      </div>
+    </body>
+</html>
+  <script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+  <script type="text/javascript">
+    var example = {
+      a:"学习好vue"
+    }
+    var vm = new Vue({
+      el:"#app",
+      data:example
+    })
+    //vm.$data === data //true
+    //vm.$el === document.getElementById("app")
+    //
+    //$watch是个实例方法，监视着vue data的变化 一变化 就会启动
+    vm.$watch("a",function(){
+      console.log("我触发了");
+    })
+  </script>
