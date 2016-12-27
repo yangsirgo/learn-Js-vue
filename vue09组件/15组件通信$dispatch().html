@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<!-- 子组件模板 -->
+<template id="child-template">
+    <input v-model='msg'>
+    <button v-on:click='notify'>Dispash Event</button>
+</template>
+<!-- 父组件模板 -->
+<div id="events-example">
+    <p>Messages：{{message | json}}</p>
+    <child></child>
+</div>
+</body>
+</html>
+<script src='../node_modules/vue/dist/vue.min.js'></script>
+<script type="text/javascript">
+    // 注册子组件
+    // 把当前消息派发出去
+    Vue.component('child',{
+        template:'#child-template',
+        data:function(){
+            return {
+                msg:'hello'
+            }
+        },
+        methods:{
+            notify:function(){
+                if(this.msg.trim()){
+                    this.$dispatch('child-msg',this.msg)
+                    this.msg=''
+                }
+            }
+        }
+    })
+
+    // 初始化父组件
+    // 收到消息时将消息推送到一个数组中
+    var parent = new Vue({
+        el:'#events-example',
+        data:{
+            message:[]
+        },
+        //在创建实例时‘event’选项简单的调用‘$on’
+        events:{
+            'child-msg':function(msg){
+                // 事件回调内部的‘this’自动绑定到注册它的实例上
+                this.message.push(msg)
+            }
+        }
+    })
+</script>
